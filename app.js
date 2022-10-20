@@ -12,6 +12,7 @@ app.use(bodyParser.json());
 const mongodbUrl = 'mongodb+srv://skabhishekgz6:wzBtYsGM8MoCbMou@cluster0.r5jtykb.mongodb.net/?retryWrites=true&w=majority';
 
 app.use('/api/places', placesRoutes);
+app.use('/api/users', usersRoutes);
 
 
 app.use((req, res, next) => {
@@ -33,6 +34,7 @@ mongoose.
 connect(mongodbUrl).
 then(() => {
     app.listen(5000);
+    console.log("Database connected");
 })
 .catch(err => {
     console.log(err);
